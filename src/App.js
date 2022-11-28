@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Calculate } from "./views/Calculate";
 import { Info } from "./views/Info";
 import { Login } from "./views/Login";
+import { Playlist } from "./views/Playlist";
 import { Register } from "./views/Register";
 import { Settings } from "./views/Settings";
 import { Successful } from "./views/Successful";
@@ -55,6 +56,7 @@ function App() {
         <Route path="successful" element={<Successful/>}/>
         <Route path="login" element={<Login/>}/>
         <Route path="information" element={<Info />} />
+        <Route path="playlist" element={<Playlist />} />
         <Route path="settings" element={<Settings/>} />
         <Route path="calculate" element={<Calculate/>} />
       </Routes>
