@@ -4,8 +4,7 @@ import { useNavigate } from "react-router-dom";
 import style from "./Register.module.css";
 
 const Register = () => {
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: { firstName: "", lastName: "", email: "", password: "" },
@@ -18,6 +17,7 @@ const Register = () => {
   return (
     <section className="register">
       <form onSubmit={formik.handleSubmit}>
+        <h2>Signup</h2>
         <div className={style.formItem}>
           <label htmlFor="first-name">First name</label>
           <input
@@ -54,10 +54,12 @@ const Register = () => {
             onChange={formik.handleChange}
           />
         </div>
-        <button type="submit">Sign up</button>
+        <button type="submit"><i className="fa-solid fa-caret-right"/></button>
       </form>
       <p>Already have an account?</p>
-      <button onClick={() => navigate("/login")}>Log in</button>
+      <button onClick={() => navigate("/login")}>
+        Log in <i className="fa-solid fa-caret-right"/>
+      </button>
     </section>
   );
 };

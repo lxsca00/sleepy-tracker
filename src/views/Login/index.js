@@ -12,6 +12,7 @@ const Login = () => {
 
   return (
     <section className="login">
+      <h2>Login</h2>
       <form onSubmit={formik.handleSubmit}>
         <div>
           <label htmlFor="email">Email</label>
@@ -31,10 +32,10 @@ const Login = () => {
             onChange={formik.handleChange}
           />
         </div>
-        <button type="submit">Log in</button>
+        <button type="submit"><i className="fa-solid fa-caret-right"/></button>
       </form>
       <p>Or login with</p>
-      <button>Google</button>
+      <button><i className="fa-brands fa-google"></i></button>
     </section>
   );
 };

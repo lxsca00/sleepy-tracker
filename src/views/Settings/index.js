@@ -10,10 +10,8 @@ const Settings = () => {
         in the app.
       </p>
       <h3>Theme</h3>
-      <button>Dark-blue</button>
-      <button>Dark-black</button>
-      <button>Light-blue</button>
-      <button>Light-black</button>
+      <button>Dark</button>
+      <button>Light</button>
       <NavBar/>
     </section>
   );

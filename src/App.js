@@ -5,6 +5,7 @@ import { Info } from "./views/Info";
 import { Login } from "./views/Login";
 import { Register } from "./views/Register";
 import { Settings } from "./views/Settings";
+import { Successful } from "./views/Successful";
 import { Welcome } from "./views/Welcome";
 //import { Button, Form, What } from "./algo";
 
@@ -51,6 +52,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="register" element={<Register/>}/>
+        <Route path="successful" element={<Successful/>}/>
         <Route path="login" element={<Login/>}/>
         <Route path="information" element={<Info />} />
         <Route path="settings" element={<Settings/>} />

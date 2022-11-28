@@ -19,6 +19,21 @@ body {
   color: var(--text);
 }
 
+label {
+  margin: 0 0 0.5rem 0;
+}
+
+input {
+  background: #333232;
+  border:none;
+  border-radius: 0.25rem;
+  color: var(--text);
+  padding: 0.5rem 1rem;
+}
+
 button {
+  border-radius: 40px;
+  border: none;
+  padding: 0.5rem 1rem;
   cursor: pointer;
 }
