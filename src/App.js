@@ -2,6 +2,8 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Calculate } from "./views/Calculate";
 import { Info } from "./views/Info";
+import { Login } from "./views/Login";
+import { Register } from "./views/Register";
 import { Settings } from "./views/Settings";
 import { Welcome } from "./views/Welcome";
 //import { Button, Form, What } from "./algo";
@@ -48,6 +50,8 @@ function App() {
       <What></What> */}
       <Routes>
         <Route path="/" element={<Welcome />} />
+        <Route path="register" element={<Register/>}/>
+        <Route path="login" element={<Login/>}/>
         <Route path="information" element={<Info />} />
         <Route path="settings" element={<Settings/>} />
         <Route path="calculate" element={<Calculate/>} />

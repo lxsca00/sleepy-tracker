@@ -1,0 +1,10 @@
+.containerOptionButtons{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 2rem
+}
+
+.containerOptionButtons h4 {
+    font-size: 1.25rem;
+}

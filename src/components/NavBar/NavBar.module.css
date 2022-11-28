@@ -1,0 +1,8 @@
+.navBar {
+    background: aqua;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    padding: 2vh 5vh;
+}

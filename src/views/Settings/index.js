@@ -1,4 +1,5 @@
 import React from "react";
+import { NavBar } from "../../components/NavBar";
 
 const Settings = () => {
   return (
@@ -13,6 +14,7 @@ const Settings = () => {
       <button>Dark-black</button>
       <button>Light-blue</button>
       <button>Light-black</button>
+      <NavBar/>
     </section>
   );
 };
