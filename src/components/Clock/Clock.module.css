@@ -1,0 +1,7 @@
+.myClock {
+    font-weight: 800;
+    font-size: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

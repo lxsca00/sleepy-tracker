@@ -1,13 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import style from "./Successful.module.css"
 
 const Successful = () => {
   const navigate = useNavigate();
 
   return (
     <section>
-      <p>You did it!</p>
-      <button onClick={() => navigate("/login")}>Continue<i className="fa-solid fa-caret-right"></i></button>
+      <p>Account created successfully!</p>
+      <button className={style.secondaryButton} onClick={() => navigate("/login")}>Continue<i className="fa-solid fa-caret-right"></i></button>
     </section>
   );
 };

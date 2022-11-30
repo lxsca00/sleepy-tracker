@@ -4,7 +4,6 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/firebase";
 import style from "./Login.module.css";
-import login from "../../assets/notification.svg"
 
 const Login = () => {
   const navigate = useNavigate();
