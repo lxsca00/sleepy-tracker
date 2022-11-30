@@ -1,5 +1,21 @@
+.login img {
+    width: 100%;
+}
+
 .formItem {
     display: flex;
     flex-direction: column;
     margin: 0 0 1rem 0;
+}
+
+.googleButton {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #DB4437;
+    color: var(--text);
+    margin: 1rem 0
 }

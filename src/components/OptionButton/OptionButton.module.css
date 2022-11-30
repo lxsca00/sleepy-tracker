@@ -1,5 +1,5 @@
 .optionButton {
-  background: #333232;
+  background: var(--secondary);
   width: 100%;
   border: none;
   border-radius: 0.25rem;

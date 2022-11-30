@@ -1,9 +1,14 @@
 :root {
   --main: #191919;
-  --secondary: #2D4263;
   --text: #F5F2E7;
-  --textLight: #041C32;
-  --mainButLight: #EEEBDD;
+  --secondary:  #333232;
+}
+
+[data-theme="light"]{
+  --main: #EEEBDD;
+  --text: #041C32;
+  --secondary:#d3d1c8 ;
+  --equis: #2D4263;
 }
 
 * {
@@ -24,7 +29,7 @@ label {
 }
 
 input {
-  background: #333232;
+  background: var(--secondary);
   border:none;
   border-radius: 0.25rem;
   color: var(--text);
@@ -40,4 +45,11 @@ button {
 
 button:hover{
   transform: scale(.9);
+}
+
+button[type=submit]{
+  margin: 1rem 0;
+  height: 3rem;
+  width: 3rem;
+  background: var(--text);
 }

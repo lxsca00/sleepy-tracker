@@ -100,7 +100,7 @@ const Register = () => {
         </button>
       </form>
       <p>Already have an account?</p>
-      <button onClick={() => navigate("/login")}>
+      <button className={style.secondaryButton} onClick={() => navigate("/login")}>
         Log in <i className="fa-solid fa-caret-right" />
       </button>
     </section>

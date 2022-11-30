@@ -1,5 +1,5 @@
 .navBar {
-    background: #333232;
+    background: var(--secondary);
     position: absolute;
     bottom: 0;
     right: 0;

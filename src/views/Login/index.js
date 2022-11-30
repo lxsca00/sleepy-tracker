@@ -4,6 +4,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/firebase";
 import style from "./Login.module.css";
+import login from "../../assets/notification.svg"
 
 const Login = () => {
   const navigate = useNavigate();
@@ -37,7 +38,7 @@ const Login = () => {
   });
 
   return (
-    <section className="login">
+    <section className={style.login}>
       <h2>Login</h2>
       <form onSubmit={formik.handleSubmit}>
         <div className={style.formItem}>
@@ -71,7 +72,7 @@ const Login = () => {
         </button>
       </form>
       <p>Or login with</p>
-      <button>
+      <button className={style.googleButton}>
         <i className="fa-brands fa-google"></i>
       </button>
     </section>
