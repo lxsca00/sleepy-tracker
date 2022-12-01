@@ -11,8 +11,10 @@
     margin: 0 0 1rem 0;
 }
 
-.welcome img {
-    width: 100%;
+.something {
+    background: var(--text);
+    height: 5rem;
+    width: 5rem;
 }
 
 .welcome p {

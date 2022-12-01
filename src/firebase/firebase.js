@@ -1,5 +1,20 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  getAuth,
+  signInWithPopup,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
+import {
+  getFirestore,
+  query,
+  getDocs,
+  collection,
+  where,
+  addDoc,
+} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCnPQVznDwksE2bY2r0ATya0JBmaDTf5-8",
@@ -13,5 +28,43 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
 
-export { auth };
+const registerWithEmail = (firstName, lastName, email, password) => {
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((res) => {
+      const user = res.user;
+      addDoc(collection(db, "users"), {
+        uid: user.uid,
+        name: `${firstName} ${lastName}`,
+        email,
+      });
+    })
+    .catch((err) => console.error(err));
+};
+
+const googleProvider = new GoogleAuthProvider();
+const signInWithGoogle = signInWithPopup(auth, googleProvider)
+  .then((res) => {
+    const user = res.user;
+    const q = query(collection(db, "users"), where("uid", "==", user.uid));
+    const docs = getDocs(q);
+    if (docs.docs.length === 0) {
+      addDoc(collection(db, "users"), {
+        uid: user.uid,
+        name: user.displayName,
+        email: user.email,
+      });
+    }
+  })
+  .catch((err) => console.error(err));
+
+const logInWithEmail = (email, password) => {
+  signInWithEmailAndPassword(auth, email, password).catch((err) =>
+    console.error(err)
+  );
+};
+
+const logOut = () => signOut(auth);
+
+export { auth, registerWithEmail,logInWithEmail, signInWithGoogle, logOut };

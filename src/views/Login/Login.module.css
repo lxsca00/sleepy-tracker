@@ -1,11 +1,13 @@
-.login img {
-    width: 100%;
-}
-
-.formItem {
+.login {
+    margin: 5vh 0;
+    height: 90vh;
     display: flex;
     flex-direction: column;
-    margin: 0 0 1rem 0;
+    justify-content: center;
+}
+
+.login img {
+    width: 100%;
 }
 
 .googleButton {

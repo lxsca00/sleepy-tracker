@@ -1,25 +1,19 @@
 import React from "react";
 import { MyClock } from "../../components/Clock";
+import { CurrentDate } from "../../components/CurrentDate";
 import { NavBar } from "../../components/NavBar";
 import { OptionButton } from "../../components/OptionButton";
 import style from "./Calculate.module.css";
 
 const Calculate = () => {
-  /*const getCurrentDate = () => {
-    let newDate = new Date();
-    let date = newDate.getDate();
-    let month = newDate.getMonth() + 1;
-    let year = newDate.getFullYear();
-
-    return(<p>{date}th {month}, {year}</p>)
-  }*/
-
   return (
     <>
       <section className={style.calculate}>
-        <MyClock />
+        <div className={style.currentTime}>
+          <MyClock />
+          <CurrentDate />
+        </div>
 
-        <p>Sunday 27th, November, 2022</p>
         <div className={style.containerOptionButtons}>
           <OptionButton>
             <h4>Go to the bed now</h4>

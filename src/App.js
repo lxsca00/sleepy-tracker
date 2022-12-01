@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+//import { ProtectedRoute } from "./components/ProtectedRoute";
 import { Calculate } from "./views/Calculate";
 import { Info } from "./views/Info";
 import { Login } from "./views/Login";
@@ -24,6 +25,7 @@ import { Welcome } from "./views/Welcome";
 //export const Context = React.createContext()
 
 function App() {
+
   //const [show, setShow] = useState(false)
   //const [theme, setTheme] = useState(themes.dark)
 
@@ -51,14 +53,14 @@ function App() {
       <Form></Form>
       <What></What> */}
       <Routes>
-        <Route path="/" element={<Welcome />} />
-        <Route path="register" element={<Register/>}/>
-        <Route path="successful" element={<Successful/>}/>
-        <Route path="login" element={<Login/>}/>
+        <Route index element={<Welcome />} />
+        <Route path="register" element={<Register />} />
+        <Route path="successful" element={<Successful />} />
+        <Route path="login" element={<Login />} />
         <Route path="information" element={<Info />} />
         <Route path="playlist" element={<Playlist />} />
-        <Route path="settings" element={<Settings/>} />
-        <Route path="calculate" element={<Calculate/>} />
+        <Route path="settings" element={<Settings />} />
+        <Route path="calculate" element={<Calculate />} />
       </Routes>
     </BrowserRouter>
   );
