@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-//import { ProtectedRoute } from "./components/ProtectedRoute";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 import { Calculate } from "./views/Calculate";
 import { Info } from "./views/Info";
 import { Login } from "./views/Login";
@@ -43,7 +43,7 @@ function App() {
   }*/
 
   return (
-    <UserContext.Provider value={{user, setUser}}>
+    <UserContext.Provider value={{ user, setUser }}>
       <BrowserRouter>
         {/*<h1>Another react project, please stop</h1>
       <button onClick={() => setShow(!show)}>Mostrar</button>
@@ -60,10 +60,38 @@ function App() {
           <Route path="register" element={<Register />} />
           <Route path="successful" element={<Successful />} />
           <Route path="login" element={<Login />} />
-          <Route path="information" element={<Info />} />
-          <Route path="playlist" element={<Playlist />} />
-          <Route path="settings" element={<Settings />} />
-          <Route path="calculate" element={<Calculate />} />
+          <Route
+            path="information"
+            element={
+              <ProtectedRoute user={user}>
+                <Info />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="playlist"
+            element={
+              <ProtectedRoute user={user}>
+                <Playlist />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="settings"
+            element={
+              <ProtectedRoute user={user}>
+                <Settings />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="calculate"
+            element={
+              <ProtectedRoute user={user}>
+                <Calculate />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </UserContext.Provider>

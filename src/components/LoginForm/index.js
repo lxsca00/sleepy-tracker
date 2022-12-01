@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/firebase";
 import style from "./LoginForm.module.css";
+import { UserContext } from "../../App";
 
 const LoginForm = () => {
   const navigate = useNavigate();
+  const current = useContext(UserContext);
 
   const validate = (values) => {
     const errors = {};
@@ -25,6 +27,8 @@ const LoginForm = () => {
         formik.values.password
       )
         .then((userCredential) => {
+          const user = userCredential.user
+          current.setUser(user)
           navigate("/calculate");
         })
         .catch((error) => {
