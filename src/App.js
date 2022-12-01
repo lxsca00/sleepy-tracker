@@ -23,8 +23,10 @@ import { Welcome } from "./views/Welcome";
 }*/
 
 //export const Context = React.createContext()
+export const UserContext = React.createContext();
 
 function App() {
+  const [user, setUser] = useState("");
 
   //const [show, setShow] = useState(false)
   //const [theme, setTheme] = useState(themes.dark)
@@ -41,8 +43,9 @@ function App() {
   }*/
 
   return (
-    <BrowserRouter>
-      {/*<h1>Another react project, please stop</h1>
+    <UserContext.Provider value={{user, setUser}}>
+      <BrowserRouter>
+        {/*<h1>Another react project, please stop</h1>
       <button onClick={() => setShow(!show)}>Mostrar</button>
       { show && <Message showed={show}></Message>}
       <Context.Provider value={theme}>
@@ -52,17 +55,18 @@ function App() {
       </Context.Provider>
       <Form></Form>
       <What></What> */}
-      <Routes>
-        <Route index element={<Welcome />} />
-        <Route path="register" element={<Register />} />
-        <Route path="successful" element={<Successful />} />
-        <Route path="login" element={<Login />} />
-        <Route path="information" element={<Info />} />
-        <Route path="playlist" element={<Playlist />} />
-        <Route path="settings" element={<Settings />} />
-        <Route path="calculate" element={<Calculate />} />
-      </Routes>
-    </BrowserRouter>
+        <Routes>
+          <Route index element={<Welcome />} />
+          <Route path="register" element={<Register />} />
+          <Route path="successful" element={<Successful />} />
+          <Route path="login" element={<Login />} />
+          <Route path="information" element={<Info />} />
+          <Route path="playlist" element={<Playlist />} />
+          <Route path="settings" element={<Settings />} />
+          <Route path="calculate" element={<Calculate />} />
+        </Routes>
+      </BrowserRouter>
+    </UserContext.Provider>
   );
 }
 

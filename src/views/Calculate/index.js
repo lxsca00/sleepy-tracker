@@ -13,7 +13,6 @@ const Calculate = () => {
           <MyClock />
           <CurrentDate />
         </div>
-
         <div className={style.containerOptionButtons}>
           <OptionButton>
             <h4>Go to the bed now</h4>

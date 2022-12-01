@@ -1,5 +1,5 @@
 import React from "react";
-import { auth } from "../../firebase/firebase";
+import { auth, registerUser } from "../../firebase/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
@@ -27,6 +27,13 @@ const RegisterForm = () => {
         formik.values.password
       )
         .then((userCredential) => {
+          const user = userCredential.user;
+          registerUser(
+            user,
+            formik.values.firstName,
+            formik.values.lastName,
+            formik.values.email
+          );
           navigate("/successful");
         })
         .catch((error) => {

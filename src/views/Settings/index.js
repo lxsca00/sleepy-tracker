@@ -12,7 +12,7 @@ const Settings = () => {
   }, [theme]);
 
   return (
-    <section>
+    <section className={style.settings}>
       <h3>How long does it take you to sleep?</h3>
       <p>
         In minutes. This answer will be taken as the basis for your calculations

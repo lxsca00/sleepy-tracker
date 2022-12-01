@@ -30,41 +30,22 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-const registerWithEmail = (firstName, lastName, email, password) => {
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((res) => {
-      const user = res.user;
-      addDoc(collection(db, "users"), {
-        uid: user.uid,
-        name: `${firstName} ${lastName}`,
-        email,
-      });
-    })
-    .catch((err) => console.error(err));
-};
-
-const googleProvider = new GoogleAuthProvider();
-const signInWithGoogle = signInWithPopup(auth, googleProvider)
-  .then((res) => {
-    const user = res.user;
-    const q = query(collection(db, "users"), where("uid", "==", user.uid));
-    const docs = getDocs(q);
-    if (docs.docs.length === 0) {
-      addDoc(collection(db, "users"), {
-        uid: user.uid,
-        name: user.displayName,
-        email: user.email,
-      });
-    }
+const registerUser = (user, firstName, lastName, email) => {
+  addDoc(collection(db, "users"), {
+    uid: user.uid,
+    name: `${firstName} ${lastName}`,
+    email
   })
-  .catch((err) => console.error(err));
+}
 
-const logInWithEmail = (email, password) => {
-  signInWithEmailAndPassword(auth, email, password).catch((err) =>
-    console.error(err)
-  );
-};
+const googleProvider = new GoogleAuthProvider()
 
-const logOut = () => signOut(auth);
+const addGoogleUser = (user) => {
+  addDoc(collection(db, "users"), {
+    uid: user.uid,
+    name: user.displayName,
+    email: user.email
+  })
+}
 
-export { auth, registerWithEmail,logInWithEmail, signInWithGoogle, logOut };
+export { auth, db, registerUser, googleProvider, addGoogleUser };

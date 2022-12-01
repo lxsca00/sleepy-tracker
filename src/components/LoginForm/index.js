@@ -55,6 +55,7 @@ const LoginForm = () => {
         <label htmlFor="password">Password</label>
         <input
           id="password"
+          type="password"
           name="password"
           value={formik.values.password}
           onChange={formik.handleChange}
